@@ -21,7 +21,6 @@ def get_slot_spint(rows, cols, symbols):
             all_symbols.append(symbol)
     
     columns = [[], [], []]
-    
     return
 
 def deposit():
