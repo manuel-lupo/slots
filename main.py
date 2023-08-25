@@ -27,7 +27,7 @@ def get_slot_spin(rows, cols, symbols):
         for _ in range(symbol_count):
             all_symbols.append(symbol)
     columns = [[], [], []]
-    for i in range(ROWS):
+    for _ in range(ROWS):
         for j in range(COLS):
             randomSymbol = all_symbols.pop(random.randint(0, len(all_symbols)) -1)
             columns[j].append(randomSymbol)
