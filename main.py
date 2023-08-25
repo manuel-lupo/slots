@@ -14,14 +14,24 @@ symbol_count = {
     "D": 8
 }
 
-def get_slot_spint(rows, cols, symbols):
+symbol_value ={
+    "A": 2,
+    "B": 1.75,
+    "C": 1.5,
+    "D": 1.25
+}
+
+def get_slot_spin(rows, cols, symbols):
     all_symbols= []
     for symbol, symbol_count in symbols.items():
         for _ in range(symbol_count):
             all_symbols.append(symbol)
-    
     columns = [[], [], []]
-    return
+    for i in range(ROWS):
+        for j in range(COLS):
+            randomSymbol = all_symbols.pop(random.randint(0, len(all_symbols)) -1)
+            columns[j].append(randomSymbol)
+    return columns
 
 def deposit():
     while True:
@@ -65,10 +75,29 @@ def get_bet(balance, lines):
             print("Ingrese un numero")
     return amount
 
+def verify_wins(result):
+    columnsWon = 0
+    for col in range(len(result)):
+       flag = True
+       actualCol = result[col]
+       for row in range(len(actualCol)):
+           if row == 0:
+               firstSym = actualCol[row]
+           else:
+               if actualCol[row] != firstSym:
+                   flag = False
+       if flag:
+           +columnsWon
+    return columnsWon
+
 def main():
     balance = deposit()
     lines = get_number_of_lines()
     bet = get_bet(balance, lines)
     print(f"Estas apostando ${bet} en {lines} lineas, apuesta total: ${bet*lines}")
-
+    ganadas = 0
+    while ganadas == 0:
+        result = get_slot_spin(ROWS, COLS, symbol_count)
+        print(str(result))
+        print(f"\nColumnas ganadas: {ganadas}")
 main()
