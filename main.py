@@ -96,8 +96,8 @@ def main():
     bet = get_bet(balance, lines)
     print(f"Estas apostando ${bet} en {lines} lineas, apuesta total: ${bet*lines}")
     ganadas = 0
-    #while ganadas == 0:
-    result = get_slot_spin(ROWS, COLS, symbol_count)
-    print(str(result))
-    print(f"\nColumnas ganadas: {ganadas}")
+    while ganadas == 0:
+        result = get_slot_spin(ROWS, COLS, symbol_count)
+        print(str(result))
+        print(f"\nColumnas ganadas: {ganadas}")
 main()
